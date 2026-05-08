@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ams-h-flask
+    env: python
+    rootDir: backend/python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m gunicorn predictive_analytics_service:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.11.9
