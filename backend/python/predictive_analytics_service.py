@@ -16,6 +16,9 @@ import joblib
 import os
 from urllib.parse import urlparse
 
+app = Flask(__name__)   # ← THIS LINE MUST EXIST
+CORS(app)
+
 # Parse DATABASE_URL (Neon.tech format)
 DATABASE_URL = os.getenv('DATABASE_URL')
 
