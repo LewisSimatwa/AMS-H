@@ -1,6 +1,9 @@
 <?php
-require 'config.php';
-require 'helpers.php';
+if ($_SERVER['REQUEST_URI'] === '/api/ping') {
+    header('Content-Type: application/json');
+    echo json_encode(['server' => $_SERVER['SERVER_SOFTWARE'] ?? 'unknown']);
+    exit;
+}
 
 // Headers
 header('Content-Type: application/json');
@@ -26,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
 }
+
+require 'config.php';
+require 'helpers.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
