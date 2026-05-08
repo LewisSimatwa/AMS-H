@@ -1,3 +1,5 @@
+import API_BASE_URL from "./config";
+
 const API_BASE = 'http://localhost:8000/api';
 
 export async function createUser(userData) {

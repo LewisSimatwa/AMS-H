@@ -1,3 +1,5 @@
+import API_BASE_URL from "./config";
+
 export async function getAssets() {
   const token = localStorage.getItem("token");
 
