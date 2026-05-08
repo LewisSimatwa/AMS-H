@@ -14,9 +14,13 @@ export default defineConfig({
     strictPort: true,
     proxy: {
       '/backend': {
-        target: 'http://localhost:8000',
+        target: process.env.VITE_PHP_API_URL || 'http://localhost:8000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/backend/, '/backend/api'),
+      },
+      '/api/analytics': {
+        target: process.env.VITE_FLASK_API_URL || 'http://localhost:5001',
+        changeOrigin: true,
       }
     }
   }

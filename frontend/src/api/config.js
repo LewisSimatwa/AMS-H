@@ -4,4 +4,3 @@ console.log("API BASE URL:", API_BASE_URL);
 
 export default API_BASE_URL;
 
-//some fixesss
