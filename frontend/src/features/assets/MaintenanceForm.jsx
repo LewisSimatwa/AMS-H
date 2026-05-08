@@ -17,7 +17,7 @@ export default function MaintenanceForm({ asset, onClose, onUpdate }) {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/api/assets/${asset.id}/status`,
+        `${API_BASE_URL}/api/assets/${asset.id}/status`,
         {
           method: "PUT",
           headers: {

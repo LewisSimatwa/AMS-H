@@ -45,7 +45,7 @@ export default function SuperAdminDashboard() {
         "Content-Type": "application/json"
       };
 
-      const statsResponse = await fetch("http://localhost:8000/api/super_admin/stats", {
+      const statsResponse = await fetch("${API_BASE_URL}/api/super_admin/stats", {
         method: "GET",
         headers
       });
@@ -57,7 +57,7 @@ export default function SuperAdminDashboard() {
 
       const statsData = await statsResponse.json();
 
-      const actionsResponse = await fetch("http://localhost:8000/api/super_admin/recent-actions", {
+      const actionsResponse = await fetch("${API_BASE_URL}/api/super_admin/recent-actions", {
         method: "GET",
         headers
       });

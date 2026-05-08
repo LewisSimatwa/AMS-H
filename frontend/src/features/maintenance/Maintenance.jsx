@@ -73,7 +73,7 @@ const Maintenance = () => {
 
   const fetchMaintenanceRecords = async () => {
     try {
-      const response = await fetch('http://localhost:8000/maintenance.php?action=list', {
+      const response = await fetch('${API_BASE_URL}/maintenance.php?action=list', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -88,7 +88,7 @@ const Maintenance = () => {
 
   const fetchAssets = async () => {
     try {
-      const response = await fetch('http://localhost:8000/maintenance.php?action=get_assets', {
+      const response = await fetch('${API_BASE_URL}/maintenance.php?action=get_assets', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -103,7 +103,7 @@ const Maintenance = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('http://localhost:8000/maintenance.php?action=get_users', {
+      const response = await fetch('${API_BASE_URL}/maintenance.php?action=get_users', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -118,7 +118,7 @@ const Maintenance = () => {
 
   const fetchRiskScores = async () => {
     try {
-      const response = await fetch('http://localhost:8000/maintenance.php?action=risk_scores', {
+      const response = await fetch('${API_BASE_URL}/maintenance.php?action=risk_scores', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -135,7 +135,7 @@ const Maintenance = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch('http://localhost:8000/maintenance.php?action=schedule', {
+      const response = await fetch('${API_BASE_URL}/maintenance.php?action=schedule', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ const Maintenance = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch('http://localhost:8000/maintenance.php?action=close', {
+      const response = await fetch('${API_BASE_URL}/maintenance.php?action=close', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ export default defineConfig({
     strictPort: true,
     proxy: {
       '/backend': {
-        target: process.env.VITE_PHP_API_URL || 'http://localhost:8000',
+        target: process.env.VITE_PHP_API_URL || '${API_BASE_URL}',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/backend/, '/backend/api'),
       },

@@ -46,7 +46,7 @@ export default function AssetsDetails() {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/export_assets.php', {
+      const response = await fetch('${API_BASE_URL}/export_assets.php', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

@@ -74,7 +74,7 @@ export default function SystemConfiguration() {
         "Content-Type": "application/json"
       };
 
-      const response = await fetch("http://localhost:8000/api/super_admin/system-config", {
+      const response = await fetch("${API_BASE_URL}/api/super_admin/system-config", {
         method: "GET",
         headers
       });
@@ -105,7 +105,7 @@ export default function SystemConfiguration() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8000/api/super_admin/system-config", {
+      const response = await fetch("${API_BASE_URL}/api/super_admin/system-config", {
         method: "PUT",
         headers: {
           "Authorization": `Bearer ${token}`,

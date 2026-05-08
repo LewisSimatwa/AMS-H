@@ -4,7 +4,7 @@ import {
 } from "lucide-react";
 import API_BASE_URL from "../../api/config";
 
-const API_BASE = "http://localhost:8000/api/super_admin";
+const API_BASE = "${API_BASE_URL}/api/super_admin";
 
 const INSTITUTION_TYPES = [
   'University',

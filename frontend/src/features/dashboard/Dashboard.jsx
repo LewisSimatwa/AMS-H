@@ -43,7 +43,7 @@ export default function Dashboard() {
 
       // Fetch asset stats
       const assetsRes = await fetch(
-        `http://localhost:8000/api/assets?institution_id=${institutionId}`,
+        `${API_BASE_URL}/api/assets?institution_id=${institutionId}`,
         { headers }
       );
 
@@ -65,7 +65,7 @@ export default function Dashboard() {
 
       try {
         const riskRes = await fetch(
-          `http://localhost:8000/api/analytics/risk-scores?institution_id=${institutionId}`,
+          `${API_BASE_URL}/api/analytics/risk-scores?institution_id=${institutionId}`,
           { headers }
         );
 
@@ -85,10 +85,10 @@ export default function Dashboard() {
       let recentLogs = [];
 
       try {
-        console.log("Fetching audit logs from:", `http://localhost:8000/api/audit/logs?institution_id=${institutionId}`);
+        console.log("Fetching audit logs from:", `${API_BASE_URL}/api/audit/logs?institution_id=${institutionId}`);
         
         const auditRes = await fetch(
-          `http://localhost:8000/api/audit/logs?institution_id=${institutionId}`,
+          `${API_BASE_URL}/api/audit/logs?institution_id=${institutionId}`,
           { headers }
         );
 

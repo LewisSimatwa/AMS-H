@@ -32,7 +32,7 @@ const DepartmentManagement = () => {
       const token = localStorage.getItem('token');
 
       const response = await fetch(
-        `http://localhost:8000/departments.php?action=list&institution_id=${institutionId}`,
+        `${API_BASE_URL}/departments.php?action=list&institution_id=${institutionId}`,
         {
           method: 'GET',
           headers: {
@@ -95,7 +95,7 @@ const DepartmentManagement = () => {
       const action = editMode ? 'update' : 'create';
 
       const response = await fetch(
-        `http://localhost:8000/departments.php?action=${action}`,
+        `${API_BASE_URL}/departments.php?action=${action}`,
         {
           method:  'POST',
           headers: {
@@ -129,7 +129,7 @@ const DepartmentManagement = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/departments.php?action=delete', {
+      const response = await fetch('${API_BASE_URL}/departments.php?action=delete', {
         method:  'POST',
         headers: {
           'Content-Type':  'application/json',

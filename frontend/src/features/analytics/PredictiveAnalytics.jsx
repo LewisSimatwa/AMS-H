@@ -51,7 +51,7 @@ export default function Analytics() {
   const institutionId = localStorage.getItem("institutionId");
 
   // API Base URLs
-  const BACKEND_URL = "http://localhost:8000/api";
+  const BACKEND_URL = "${API_BASE_URL}/api";
   const ANALYTICS_URL = "http://localhost:5001/api/analytics";
 
   useEffect(() => {

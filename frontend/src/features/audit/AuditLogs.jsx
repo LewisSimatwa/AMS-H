@@ -17,7 +17,7 @@ export default function AuditLogs() {
         if (!institutionId) throw new Error("No institution ID");
 
         // Use the API router endpoint
-        const url = `http://localhost:8000/api/audit/logs?institution_id=${institutionId}`;
+        const url = `${API_BASE_URL}/api/audit/logs?institution_id=${institutionId}`;
         console.log("Fetching from:", url);
 
         const res = await fetch(url, {

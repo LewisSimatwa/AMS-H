@@ -46,7 +46,7 @@ export default function AssetTable({ onView, onRetire, refreshTrigger }) {
       };
 
       const response = await fetch(
-        `http://localhost:8000/api/assets?institution_id=${institutionId}`,
+        `${API_BASE_URL}/api/assets?institution_id=${institutionId}`,
         { headers }
       );
 
@@ -75,7 +75,7 @@ export default function AssetTable({ onView, onRetire, refreshTrigger }) {
   // Get barcode URL with authentication parameters
   const getBarcodeUrl = (asset) => {
     // Include token in URL since img tags can't send Authorization headers
-    const url = `http://localhost:8000/api/barcode?asset_id=${asset.id}&institution_id=${institutionId}&token=${token}`;
+    const url = `${API_BASE_URL}/api/barcode?asset_id=${asset.id}&institution_id=${institutionId}&token=${token}`;
     console.log("Generated barcode URL:", url);
     return url;
   };

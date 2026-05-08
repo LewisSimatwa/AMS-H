@@ -39,7 +39,7 @@ export default function Reports() {
       };
 
       const response = await fetch(
-        `http://localhost:8000/audit_logs.php`,
+        `${API_BASE_URL}/audit_logs.php`,
         { headers }
       );
 
@@ -145,7 +145,7 @@ export default function Reports() {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/generate_report.php', {
+      const response = await fetch('${API_BASE_URL}/generate_report.php', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

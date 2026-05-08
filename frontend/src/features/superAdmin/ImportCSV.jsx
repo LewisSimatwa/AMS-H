@@ -22,7 +22,7 @@ export default function CSVImport() {
   const fetchInstitutions = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8000/api/super_admin/institutions", {
+      const response = await fetch("${API_BASE_URL}/api/super_admin/institutions", {
         headers: { "Authorization": `Bearer ${token}` }
       });
 
@@ -75,7 +75,7 @@ DEMO-002,Demo Printer,SN789012,Printer,2024-02-20,800.00,excellent,available,Off
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8000/api/super_admin/csv/validate", {
+      const response = await fetch("${API_BASE_URL}/api/super_admin/csv/validate", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -124,7 +124,7 @@ DEMO-002,Demo Printer,SN789012,Printer,2024-02-20,800.00,excellent,available,Off
         const csvText = event.target.result;
         
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8000/api/super_admin/csv/import", {
+        const response = await fetch("${API_BASE_URL}/api/super_admin/csv/import", {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${token}`,

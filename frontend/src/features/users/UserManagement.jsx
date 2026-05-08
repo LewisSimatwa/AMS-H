@@ -40,7 +40,7 @@ const UserManagement = () => {
       console.log('Token exists:', !!token);
       console.log('Token preview:', token ? token.substring(0, 20) + '...' : 'none');
       
-      const response = await fetch('http://localhost:8000/users.php?action=list', {
+      const response = await fetch('${API_BASE_URL}/users.php?action=list', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -71,7 +71,7 @@ const UserManagement = () => {
   const fetchRoles = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/users.php?action=get_roles', {
+      const response = await fetch('${API_BASE_URL}/users.php?action=get_roles', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -97,7 +97,7 @@ const UserManagement = () => {
   const fetchDepartments = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/users.php?action=get_departments', {
+      const response = await fetch('${API_BASE_URL}/users.php?action=get_departments', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -182,7 +182,7 @@ const UserManagement = () => {
     try {
       const token = localStorage.getItem('token');
       const action = editMode ? 'update' : 'create';
-      const response = await fetch(`http://localhost:8000/users.php?action=${action}`, {
+      const response = await fetch(`${API_BASE_URL}/users.php?action=${action}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -216,7 +216,7 @@ const UserManagement = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/users.php?action=delete`, {
+      const response = await fetch(`${API_BASE_URL}/users.php?action=delete`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -242,7 +242,7 @@ const UserManagement = () => {
   const handleToggleStatus = async (userId, currentStatus) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/users.php?action=toggle_status`, {
+      const response = await fetch(`${API_BASE_URL}/users.php?action=toggle_status`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -76,7 +76,7 @@ export default function ReportsAndAudit() {
     setError("");
     
     try {
-      const response = await fetch("http://localhost:8000/api/super_admin/analytics", { headers });
+      const response = await fetch("${API_BASE_URL}/api/super_admin/analytics", { headers });
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -144,7 +144,7 @@ export default function ReportsAndAudit() {
       if (auditFilters.institution_id) params.append('institution_id', auditFilters.institution_id);
 
       const response = await fetch(
-        `http://localhost:8000/api/super_admin/audit-logs?${params}`,
+        `${API_BASE_URL}/api/super_admin/audit-logs?${params}`,
         { headers }
       );
 
@@ -168,7 +168,7 @@ export default function ReportsAndAudit() {
   // Fetch Users
   async function fetchUsers() {
     try {
-      const response = await fetch("http://localhost:8000/api/super_admin/admins", { headers });
+      const response = await fetch("${API_BASE_URL}/api/super_admin/admins", { headers });
 
       if (!response.ok) throw new Error("Failed to fetch users");
       
@@ -182,7 +182,7 @@ export default function ReportsAndAudit() {
   // Fetch Institutions
   async function fetchInstitutions() {
     try {
-      const response = await fetch("http://localhost:8000/api/super_admin/institutions", { headers });
+      const response = await fetch("${API_BASE_URL}/api/super_admin/institutions", { headers });
 
       if (!response.ok) throw new Error("Failed to fetch institutions");
       
@@ -196,7 +196,7 @@ export default function ReportsAndAudit() {
   // Export Analytics
   async function exportAnalytics() {
     try {
-      const response = await fetch("http://localhost:8000/api/super_admin/analytics-export", { headers });
+      const response = await fetch("${API_BASE_URL}/api/super_admin/analytics-export", { headers });
 
       if (!response.ok) throw new Error("Failed to export analytics");
 
@@ -225,7 +225,7 @@ export default function ReportsAndAudit() {
       );
 
       const response = await fetch(
-        `http://localhost:8000/api/super_admin/audit-logs-export?${params}`,
+        `${API_BASE_URL}/api/super_admin/audit-logs-export?${params}`,
         { headers }
       );
 

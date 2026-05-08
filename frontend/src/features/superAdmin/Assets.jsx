@@ -34,7 +34,7 @@ export default function GlobalAssetOversight() {
   const fetchAssets = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8000/api/super_admin/assets", {
+      const response = await fetch("${API_BASE_URL}/api/super_admin/assets", {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -51,7 +51,7 @@ export default function GlobalAssetOversight() {
   const fetchInstitutions = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8000/api/super_admin/institutions", {
+      const response = await fetch("${API_BASE_URL}/api/super_admin/institutions", {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -67,7 +67,7 @@ export default function GlobalAssetOversight() {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:8000/api/super_admin/asset-history?asset_id=${asset.id}`,
+        `${API_BASE_URL}/api/super_admin/asset-history?asset_id=${asset.id}`,
         {
           headers: {
             "Authorization": `Bearer ${token}`
@@ -104,7 +104,7 @@ export default function GlobalAssetOversight() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8000/api/super_admin/force-retire", {
+      const response = await fetch("${API_BASE_URL}/api/super_admin/force-retire", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,

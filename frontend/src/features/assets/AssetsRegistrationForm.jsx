@@ -52,7 +52,7 @@ export default function AssetRegistrationForm({ onAssetAdded }) {
 
       console.log("Sending asset registration:", payload);
 
-      const response = await fetch("http://localhost:8000/api/assets", {
+      const response = await fetch("${API_BASE_URL}/api/assets", {
         method: "POST",
         headers,
         body: JSON.stringify(payload),
