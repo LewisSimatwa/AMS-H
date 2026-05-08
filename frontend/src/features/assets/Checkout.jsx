@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/Checkout.css";
+import "../../styles/checkout.css";
 
 export default function CheckoutModule() {
   const [activeTab, setActiveTab] = useState("checkout");
