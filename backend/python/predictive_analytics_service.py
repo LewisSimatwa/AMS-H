@@ -14,19 +14,30 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 import joblib
 import os
-import json
+from urllib.parse import urlparse
 
-app = Flask(__name__)
-CORS(app)
+# Parse DATABASE_URL (Neon.tech format)
+DATABASE_URL = os.getenv('DATABASE_URL')
 
-# Database configuration
-DB_CONFIG = {
-    'host': os.getenv('DB_HOST', 'localhost'),
-    'database': os.getenv('DB_NAME', 'MIAMS'),
-    'user': os.getenv('DB_USER', 'asset_user'),
-    'password': os.getenv('DB_PASSWORD', 'Lewis@kip5861'),
-    'port': os.getenv('DB_PORT', '5432')
-}
+if DATABASE_URL:
+    parsed = urlparse(DATABASE_URL)
+    DB_CONFIG = {
+        'host': parsed.hostname,
+        'database': parsed.path[1:],  # removes leading /
+        'user': parsed.username,
+        'password': parsed.password,
+        'port': parsed.port or 5432,
+        'sslmode': 'require'  # required for Neon
+    }
+else:
+    # Fallback for local development
+    DB_CONFIG = {
+        'host': os.getenv('DB_HOST', 'localhost'),
+        'database': os.getenv('DB_NAME', 'MIAMS'),
+        'user': os.getenv('DB_USER', 'asset_user'),
+        'password': os.getenv('DB_PASSWORD', ''),
+        'port': os.getenv('DB_PORT', '5432')
+    }
 
 # Model storage path
 MODEL_PATH = './models'
