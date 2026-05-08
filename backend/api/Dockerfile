@@ -9,7 +9,4 @@ RUN a2enmod rewrite
 
 COPY . /var/www/html/
 
-COPY ../../composer.json /var/www/html/
-COPY ../../vendor/ /var/www/html/vendor/
-
 EXPOSE 80
