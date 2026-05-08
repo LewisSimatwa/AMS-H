@@ -16,7 +16,7 @@ import joblib
 import os
 from urllib.parse import urlparse
 
-app = Flask(__name__)   # ← THIS LINE MUST EXIST
+app = Flask(__name__)  
 CORS(app)
 
 # Parse DATABASE_URL (Neon.tech format)
