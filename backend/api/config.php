@@ -6,61 +6,52 @@ ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/error.log');
 
 try {
-    // --- Read config from environment variables (Railway) ---
-    // --- Falls back to .env file for local development      ---
-
-    $env = [];
-
+    // Load .env
     $envFile = __DIR__ . '/.env';
-    if (file_exists($envFile)) {
-        $parsed = parse_ini_file($envFile);
-        if ($parsed !== false) {
-            $env = $parsed;
-        } else {
-            error_log('Failed to parse .env file, falling back to system env vars');
-        }
-    } else {
-        error_log('.env file not found, using system environment variables');
+    
+    if (!file_exists($envFile)) {
+        error_log('.env file not found at: ' . $envFile);
+        throw new Exception('.env file not found');
     }
-
-    // Helper: prefer system env var over .env file value
-    $getEnv = function(string $key) use ($env): ?string {
-        $val = getenv($key);
-        if ($val !== false && $val !== '') return $val;
-        return $env[$key] ?? null;
-    };
+    
+    $env = parse_ini_file($envFile);
+    
+    if ($env === false) {
+        error_log('Failed to parse .env file');
+        throw new Exception('Failed to parse .env file');
+    }
 
     // Validate required env variables
     $required = ['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'JWT_SECRET'];
     foreach ($required as $key) {
-        if ($getEnv($key) === null) {
+        if (!isset($env[$key])) {
             error_log("Missing required env variable: $key");
             throw new Exception("Missing required configuration: $key");
         }
     }
 
-    // Database connection (sslmode=require is mandatory for Neon)
-    $dsn = "pgsql:host={$getEnv('DB_HOST')};dbname={$getEnv('DB_NAME')};sslmode=require";
-    $db = new PDO($dsn, $getEnv('DB_USER'), $getEnv('DB_PASSWORD'), [
-        PDO::ATTR_ERRMODE          => PDO::ERRMODE_EXCEPTION,
+    // Database connection
+    $dsn = "pgsql:host={$env['DB_HOST']};dbname={$env['DB_NAME']}";
+    $db = new PDO($dsn, $env['DB_USER'], $env['DB_PASSWORD'], [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false
     ]);
-
+    
     error_log('Database connected successfully');
 
     // JWT Secret
     if (!defined('JWT_SECRET')) {
-        define('JWT_SECRET', $getEnv('JWT_SECRET'));
+        define('JWT_SECRET', $env['JWT_SECRET']);
     }
 
     // Roles
-    if (!defined('ROLE_ADMIN'))    define('ROLE_ADMIN',    'admin');
+    if (!defined('ROLE_ADMIN')) define('ROLE_ADMIN', 'admin');
     if (!defined('ROLE_SECURITY')) define('ROLE_SECURITY', 'security');
-    if (!defined('ROLE_ICT'))      define('ROLE_ICT',      'ict');
-    if (!defined('ROLE_MANAGER'))  define('ROLE_MANAGER',  'manager');
-    if (!defined('ROLE_AUDITOR'))  define('ROLE_AUDITOR',  'auditor');
-    if (!defined('ROLE_STAFF'))    define('ROLE_STAFF',    'staff');
+    if (!defined('ROLE_ICT')) define('ROLE_ICT', 'ict');
+    if (!defined('ROLE_MANAGER')) define('ROLE_MANAGER', 'manager');
+    if (!defined('ROLE_AUDITOR')) define('ROLE_AUDITOR', 'auditor');
+    if (!defined('ROLE_STAFF')) define('ROLE_STAFF', 'staff');
 
 } catch (PDOException $e) {
     error_log('Database connection error: ' . $e->getMessage());
