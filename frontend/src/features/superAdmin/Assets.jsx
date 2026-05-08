@@ -12,6 +12,7 @@ import {
   Archive
 } from "lucide-react";
 import '../../styles/SuperAdmin/Assets.css'
+import API_BASE_URL from "../../api/config";
 
 export default function GlobalAssetOversight() {
   const [assets, setAssets] = useState([]);

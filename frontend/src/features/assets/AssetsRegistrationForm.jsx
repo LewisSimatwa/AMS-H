@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../styles/AssetRegistrationForm.css";
+import API_BASE_URL from "../../api/config";
 
 export default function AssetRegistrationForm({ onAssetAdded }) {
   const [form, setForm] = useState({

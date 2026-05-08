@@ -15,6 +15,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import "../../styles/Analytics.css";
+import API_BASE_URL from "../../api/config";
 
 const RISK_COLORS = {
   LOW: '#10b981',

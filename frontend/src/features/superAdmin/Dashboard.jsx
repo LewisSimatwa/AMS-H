@@ -8,6 +8,7 @@ import {
   Activity
 } from "lucide-react";
 import "../../styles/SuperAdmin/Dashboard.css";
+import API_BASE_URL from "../../api/config";
 
 export default function SuperAdminDashboard() {
   const [loading, setLoading] = useState(true);

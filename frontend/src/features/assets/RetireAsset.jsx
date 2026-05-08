@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../styles/RetireAsset.css";
+import API_BASE_URL from "../../api/config";
 
 export default function RetireAsset({ asset, onClose, onConfirm }) {
   const [loading, setLoading] = useState(false);

@@ -15,6 +15,7 @@ import {
   Line
 } from "recharts";
 import "../../styles/SuperAdmin/ReportsAndAudit.css";
+import API_BASE_URL from "../../api/config";
 
 export default function ReportsAndAudit() {
   const [activeTab, setActiveTab] = useState("analytics");

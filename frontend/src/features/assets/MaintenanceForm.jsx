@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../styles/MaintenanceForm.css";
+import API_BASE_URL from "../../api/config";
 
 export default function MaintenanceForm({ asset, onClose, onUpdate }) {
   const [status, setStatus] = useState(asset.status || "available");

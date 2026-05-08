@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/AssetsTable.css";
 import "../../styles/Barcode.css";
+import API_BASE_URL from "../../api/config";
 
 export default function AssetTable({ onView, onRetire, refreshTrigger }) {
   const navigate = useNavigate();

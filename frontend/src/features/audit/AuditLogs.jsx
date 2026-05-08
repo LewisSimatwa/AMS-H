@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../styles/AuditLogs.css";
+import API_BASE_URL from "../../api/config";
 
 export default function AuditLogs() {
   const [logs, setLogs] = useState([]);

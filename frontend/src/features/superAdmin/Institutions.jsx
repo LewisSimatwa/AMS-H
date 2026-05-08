@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { 
   Building2, Plus, Search, Edit2, Users, Package, X, Save, UserPlus, Shield, Key, UserX, Phone, Mail, Globe
 } from "lucide-react";
+import API_BASE_URL from "../../api/config";
 
 const API_BASE = "http://localhost:8000/api/super_admin";
 

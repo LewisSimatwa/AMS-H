@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/checkout.css";
+import API_BASE_URL from "../../api/config";
 
 // ddnwifewi
 export default function CheckoutModule() {

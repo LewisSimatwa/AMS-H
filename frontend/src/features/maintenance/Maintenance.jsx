@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/Maintenance.css';
+import API_BASE_URL from "../../api/config";
 
 const Maintenance = () => {
   const [activeTab, setActiveTab] = useState('schedule');

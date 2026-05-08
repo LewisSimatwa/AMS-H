@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Reports.css";
+import API_BASE_URL from "../../api/config";
 
 export default function Reports() {
   const navigate = useNavigate();

@@ -14,6 +14,7 @@ import {
   Lock
 } from "lucide-react";
 import "../../styles/SuperAdmin/Settings.css";
+import API_BASE_URL from "../../api/config";
 
 export default function SystemConfiguration() {
   const [loading, setLoading] = useState(true);

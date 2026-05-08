@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Upload, Download, CheckCircle, XCircle, AlertTriangle, FileText, Building2 } from "lucide-react";
 import "../../styles/SuperAdmin/CSVImport.css";
+import API_BASE_URL from "../../api/config";
 
 export default function CSVImport() {
   const [institutions, setInstitutions] = useState([]);

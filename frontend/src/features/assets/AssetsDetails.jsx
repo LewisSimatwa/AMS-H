@@ -4,6 +4,7 @@ import AssetDetail from "./AssetsDetails";
 import AssetRegistrationForm from "./AssetsRegistrationForm";
 import RetireAsset from "./RetireAsset";
 import "../../styles/Assets.css";
+import API_BASE_URL from "../../api/config";
 
 export default function AssetsDetails() {
   const [refreshTrigger, setRefreshTrigger] = useState(0);
