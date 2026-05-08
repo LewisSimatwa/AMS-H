@@ -97,7 +97,7 @@ export default function Login() {
           <div className="logo-wrapper">
             <div className="logo-glow"></div>
             <div className="logo-container">
-              <img src="frontend\public\amslogo.png" alt="MIAMS Logo" className="logo-image" />
+              <img src="/amslogo.png" alt="MIAMS Logo" className="logo-image" />
             </div>
           </div>
           <div className="brand-text">
