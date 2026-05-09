@@ -45,7 +45,7 @@ export default function RetireAsset({ asset, onClose, onConfirm }) {
       console.log("Retirement Reason:", retirementReason);
       
       const response = await fetch(
-        "${API_BASE_URL}/retire_asset.php",
+        '${API_BASE_URL}/retire_asset.php',
         {
           method: "POST",
           headers: {

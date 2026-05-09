@@ -85,7 +85,7 @@ export default function CheckoutModule() {
     }
 
     try {
-      const res = await fetch("${API_BASE_URL}/available.php", {
+      const res = await fetch('${API_BASE_URL}/available.php', {
         headers: { 
           "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json"
@@ -129,7 +129,7 @@ export default function CheckoutModule() {
   console.log('Fetching locations with token...');
   
   try {
-    const url = "${API_BASE_URL}/locations.php";
+    const url = '${API_BASE_URL}/locations.php';
     const res = await fetch(url, {
       method: 'GET',
       headers: { 
@@ -224,7 +224,7 @@ export default function CheckoutModule() {
     console.log('Fetching users with token...');
     
     try {
-      const url = "${API_BASE_URL}/user_list.php";
+      const url = '${API_BASE_URL}/user_list.php';
       console.log('Fetching from URL:', url);
       
       const res = await fetch(url, {
@@ -283,7 +283,7 @@ export default function CheckoutModule() {
     console.log('Fetching departments with token...');
     
     try {
-      const url = "${API_BASE_URL}/departments.php";
+      const url = '${API_BASE_URL}/departments.php';
       console.log('Fetching from URL:', url);
       
       const res = await fetch(url, {
@@ -336,7 +336,7 @@ export default function CheckoutModule() {
     const token = getToken();
 
     try {
-      const res = await fetch("${API_BASE_URL}/checkout.php", {
+      const res = await fetch('${API_BASE_URL}/checkout.php', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -375,7 +375,7 @@ export default function CheckoutModule() {
     const token = getToken();
 
     try {
-      const res = await fetch("${API_BASE_URL}/checkin.php", {
+      const res = await fetch('${API_BASE_URL}/checkin.php', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -413,7 +413,7 @@ export default function CheckoutModule() {
     const token = getToken();
 
     try {
-      const res = await fetch("${API_BASE_URL}/transfer.php", {
+      const res = await fetch('${API_BASE_URL}/transfer.php', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
